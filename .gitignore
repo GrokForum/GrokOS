@@ -1,0 +1,11 @@
+# Public GitHub allowlist. Everything else is workshop-only.
+*
+!.gitignore
+!LICENSE
+!README.md
+!overlay/
+overlay/**
+!overlay/public/
+overlay/public/**
+!overlay/public/FORKS.md
+!overlay/public/INSTALLER.md
