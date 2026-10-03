@@ -9,3 +9,5 @@ overlay/**
 overlay/public/**
 !overlay/public/FORKS.md
 !overlay/public/INSTALLER.md
+!overlay/public/docs/
+!overlay/public/docs/**

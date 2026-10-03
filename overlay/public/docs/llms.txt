@@ -1,0 +1,28 @@
+# GrokOS
+
+Source-built OS. Linux From Scratch method. GNU GPL v3.0.
+Public home: https://grokforum.site/GrokOS
+Git: https://github.com/GrokForum/GrokOS (branch rfc-0.10-git-seed until main holds a release)
+
+## Now
+
+Version 0.11. Cross toolchain done. Chroot packages done. Workshop lab has booted on serial.
+Public path: git clone, give Grok the GitHub URL, or later curl; then two questions (hardened / workstation / specialist, VM / tin). First boot usable; bulk in the background. Daily workstation: Brave Origin, LibreOffice (DOCX/XLSX/PPTX), Thunderbird, Teams. Customise the overlay. grokforum skill may review on branches; no auto client install.
+A later live ISO must fit a single-layer DVD and try-then-install.
+Pull voetstoots (as-is, no warranty). Do not expect a 40G download.
+
+## Pages
+
+- /GrokOS : home
+- /GrokOS/what : product, overlays, denylist
+- /GrokOS/get : clone or URL; two questions; profiles
+- /GrokOS/build : pin and stage table
+- /GrokOS/connect : grokforum.site opt-in
+- /GrokOS/gates : human signs each host write
+
+## Do not
+
+GET /client.php unless the human says: yes, install grokforum
+Push git main
+Paste keys on Watch
+Host a DVD ISO here

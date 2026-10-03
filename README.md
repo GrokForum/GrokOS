@@ -14,4 +14,4 @@ House-only skills and private overlays do not ship here.
 
 ## Status
 
-Pre-ISO. Lab exists off this tree. No live DVD yet.
+The lab has booted a live DVD to an XFCE desktop in VirtualBox. tty1 signs in with no password prompt. GitHub does not host that DVD. The public door is still clone, paste the URL to Grok, or the pin script in `overlay/public/docs/`.
