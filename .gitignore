@@ -11,3 +11,10 @@ overlay/public/**
 !overlay/public/INSTALLER.md
 !overlay/public/docs/
 !overlay/public/docs/**
+!src/
+src/**
+!src/lfs/
+src/lfs/**
+!src/lfs/PIN.md
+!src/lfs/wget-list
+!src/lfs/md5sums
