@@ -55,7 +55,7 @@ for f in "$list" "$sums" "$pin"; do
   fi
 done
 
-want_list=cc26ebde163cd67aafe2ba1e618d9cd0527d6a9ce6c72c00e488e1466648ff5f
+want_list=2b54534c9192eeb3bbf45f6971d4a3978fba9f0cb153f5d36749b2a3e0575327
 want_sums=a8765c3d7432cbd564f0d099ab4f63a706febe6bd4ac55ede2eaef44097f3f43
 got_list=$(sha256sum "$list" | awk '{print $1}')
 got_sums=$(sha256sum "$sums" | awk '{print $1}')
@@ -66,8 +66,9 @@ fi
 grep -q "$want_list" "$pin"
 grep -q "$want_sums" "$pin"
 nurl=$(grep -cE '^https?://' "$list")
-if [ "$nurl" != 99 ]; then
-  echo "ABORT: wget-list has $nurl urls, want 99"
+nkept=$(grep -cE '^src/lfs/kept/' "$list")
+if [ "$nurl" != 96 ] || [ "$nkept" != 3 ]; then
+  echo "ABORT: wget-list has $nurl urls and $nkept kept files, want 96 and 3"
   exit 1
 fi
 
@@ -91,7 +92,19 @@ if [ "$how" = tin ]; then
   echo "tin: pin only. Disk write stays a later RFC."
 fi
 echo "RFC-0.29 get. wget -c into $dest_real. Will not compile. Will not bake. Will not start a VM."
-wget --continue --tries=5 --timeout=60 --directory-prefix="$dest_real" -i "$list"
+urls=$(mktemp)
+trap 'rm -f "$urls"' EXIT
+while IFS= read -r line || [ -n "$line" ]; do
+  case "$line" in
+    https://*|http://*)
+      printf '%s\n' "$line" >> "$urls"
+      ;;
+    src/lfs/kept/*)
+      cp -a "$root/$line" "$dest_real/$(basename "$line")"
+      ;;
+  esac
+done < "$list"
+wget --continue --tries=5 --timeout=60 --directory-prefix="$dest_real" -i "$urls"
 echo "=== md5 ==="
 (cd "$dest_real" && md5sum -c "$sums")
 echo "RFC-0.29 get done. Bake is a later named GO."
