@@ -9,18 +9,18 @@ Two doors now, a third later. Then two questions. Grok builds a local image from
 ```
 git clone https://github.com/GrokForum/GrokOS
 cd GrokOS
-git checkout rfc-0.10-git-seed
+git checkout rfc-0.54-live-desktop
 ```
 
 Open Grok in that directory.
 
 **Or give Grok the URL**
 
-Paste `https://github.com/GrokForum/GrokOS` into Grok (Grok Build or grokbuild.site). Grok clones the same tree.
+Paste `https://github.com/GrokForum/GrokOS` into Grok (Grok Build or grokbuild.site). Grok clones the same tree and checks out `rfc-0.54-live-desktop`.
 
 **Or curl**
 
-From a checkout that already has `src/lfs/wget-list` (this workshop tree). The public GitHub seed does not carry the pin yet, so a raw URL of this script cannot see it.
+From a checkout of `rfc-0.54-live-desktop`. That branch carries `src/lfs/wget-list`. A raw URL of this script, without the checkout, cannot see the pin.
 
 ```
 GROKOS_GET=1 bash overlay/public/docs/get-0.29.sh
@@ -28,7 +28,7 @@ GROKOS_GET=1 bash overlay/public/docs/get-0.29.sh
 
 Silence = hardened + vm. Set `GROKOS_OFFERING` or `GROKOS_HOW` only when you want the other door. `specialist` refuses. The script downloads the frozen LFS pin into `$HOME/grokos-sources`. It does not compile, bake, partition, or start a VM. Background bootstrap and Grok-at-boot stay later.
 
-`main` still holds the licence seed only. Use the feature branch until a named release lands on `main`. Pull is voetstoots: as-is, no warranty. Nothing is offered as a public boot image yet. DVD, thumb, or a curl from a running OS are later media for the same two intents (VM or tin). GitHub does not host the ISO file.
+`main` still holds the licence seed only. The pin is on `rfc-0.54-live-desktop`. Use that branch until a named release lands on `main`. Pull is voetstoots: as-is, no warranty. Nothing is offered as a public boot image yet. DVD, thumb, or a curl from a running OS are later media for the same two intents (VM or tin). GitHub does not host the ISO file.
 
 ## Two questions
 
@@ -36,7 +36,7 @@ Silence keeps the default.
 
 1. **What do you want?**
    - **hardened** (default) — secure daily OS. sshd off. Packages from the pin only.
-   - **workstation** — same core plus documents, spreadsheets, mail, Teams.
+   - **workstation** — same core plus documents, spreadsheets, and mail.
    - **specialist** — same core plus one extra role (named later). Not available to bake until that role has its own RFC.
 2. **How do you run it?**
    - **VM** (default) — Grok bakes a VirtualBox disk on this machine. Try it without touching your existing OS.

@@ -2,7 +2,7 @@
 
 Source-built OS. Linux From Scratch is the method. Licence: GNU GPL v3.0.
 
-Clone the public git, give Grok the GitHub URL, or run the pin get (`overlay/public/docs/get-0.29.sh`). Answer two questions (hardened / workstation / specialist, and VM / tin). Grok bakes locally from the pin. First boot should be usable while the rest finishes in the background. There is no hosted DVD. The public image is a daily workstation (documents, spreadsheets, Office Open XML, mail, Teams), not a dump of one person's extra apps.
+Clone the public git, give Grok the GitHub URL, or run the pin get (`overlay/public/docs/get-0.29.sh`). Answer two questions (hardened / workstation / specialist, and VM / tin). Grok bakes locally from the pin. First boot should be usable while the rest finishes in the background. There is no hosted DVD. The public image is a daily workstation (documents, spreadsheets, Office Open XML, and mail), not a dump of one person's extra apps.
 
 ## Now (0.11)
 
